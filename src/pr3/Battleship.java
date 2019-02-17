@@ -26,6 +26,7 @@ public class Battleship {
         for(int i=0; i<testCases; i++){
 
             p1 = true;
+            gameOver = false;
 
             p1ships = 0;
             p2ships = 0;
