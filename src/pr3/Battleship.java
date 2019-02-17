@@ -42,9 +42,6 @@ public class Battleship {
 
                 playRound();
 
-                System.out.println("p1" + p1ships);
-                System.out.println("p2" + p2ships);
-
                 if(gameOver){
                     if((p1ships == 0 && p2ships == 0) || (p1ships != 0 && p2ships != 0)){
                         System.out.println("draw");
@@ -112,7 +109,7 @@ public class Battleship {
                 }
             }
         }
-        System.out.println(numShips);
+
         return numShips;
     }
 
@@ -137,29 +134,8 @@ public class Battleship {
             p1 = true;
         }
 
-
-
-
-
-        System.out.println("pl 2");
-        for(int i=0; i<p2field.length; i++){
-            for(int j=0; j<p2field[i].length; j++){
-                System.out.print(p2field[i][j]);
-            }
-            System.out.println();
-        }
-
-        System.out.println("pl 1");
-
-        for(int k=0; k<p1field.length; k++){
-            for(int j=0; j<p1field[k].length; j++){
-                System.out.print(p1field[k][j]);
-            }
-            System.out.println();
-        }
-
         if(p1ships == 0 || p2ships == 0){
-            System.out.println("game over!");
+
             gameOver = true;
         }
     }
