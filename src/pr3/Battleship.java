@@ -14,6 +14,7 @@ public class Battleship {
     private char[][] p1field;
     private char[][] p2field;
     private boolean gameOver;
+    private boolean p1;
 
 
     public Battleship(){
@@ -23,6 +24,8 @@ public class Battleship {
         testCases = Integer.parseInt(scanner.nextLine());
 
         for(int i=0; i<testCases; i++){
+
+            p1 = true;
 
             p1ships = 0;
             p2ships = 0;
@@ -35,7 +38,7 @@ public class Battleship {
             p1ships = determineNumShips(p1field);
             p2ships = determineNumShips(p2field);
 
-            for(int j=0; j<n/2; j++){
+            for(int j=0; j<n; j++){
 
                 playRound();
 
@@ -114,20 +117,29 @@ public class Battleship {
     }
 
     public void playRound(){
-        int[] p1hit = scanCoordinates();
-        int[] p2hit = scanCoordinates();
+        int[] hit = scanCoordinates();
 
-        if(p2field[p1hit[0]] [p1hit[1]] == '#'){
-            p2ships--;
+        if(p1){
+            if(p2field[hit[0]] [hit[1]] == '#'){
+                p2ships--;
+            }
+            p2field[hit[0]] [hit[1]] = '0';
+
+            p1 = false;
+        }
+        else{
+            if(p1field[hit[0]] [hit[1]] == '#'){
+                p1ships--;
+            }
+
+            p1field[hit[0]] [hit[1]] = '0';
+
+            p1 = true;
         }
 
-        p2field[p1hit[0]] [p1hit[1]] = '0';
 
-        if(p1field[p2hit[0]] [p2hit[1]] == '#'){
-            p1ships--;
-        }
 
-        p1field[p2hit[0]] [p2hit[1]] = '0';
+
 
         System.out.println("pl 2");
         for(int i=0; i<p2field.length; i++){
