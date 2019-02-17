@@ -42,23 +42,16 @@ public class Battleship {
             for(int j=0; j<n; j++){
 
                 playRound();
-
-                if(gameOver){
-                    if((p1ships == 0 && p2ships == 0) || (p1ships != 0 && p2ships != 0)){
-                        System.out.println("draw");
-                    }
-                    else if(p1ships == 0){
-                        System.out.println("player two wins");
-                    }
-                    else if(p2ships == 0){
-                        System.out.println("player one wins");
-                    }
-                    break;
-                }
             }
 
             if((p1ships == 0 && p2ships == 0) || (p1ships != 0 && p2ships != 0)){
                 System.out.println("draw");
+            }
+            else if(p1ships == 0){
+                System.out.println("player two wins");
+            }
+            else if(p2ships == 0){
+                System.out.println("player one wins");
             }
 
         }
@@ -134,10 +127,9 @@ public class Battleship {
 
             p1 = true;
         }
+    }
 
-        if(p1ships == 0 || p2ships == 0){
-
-            gameOver = true;
-        }
+    public static void main(String[] args){
+        Battleship newGame = new Battleship();
     }
 }
