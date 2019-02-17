@@ -17,14 +17,15 @@ public class Battleship {
 
 
     public Battleship(){
-        p1ships = 0;
-        p2ships = 0;
 
         scanner = new Scanner(System.in);
 
         testCases = Integer.parseInt(scanner.nextLine());
 
         for(int i=0; i<testCases; i++){
+
+            p1ships = 0;
+            p2ships = 0;
 
             scanDimensions();
 
@@ -65,7 +66,6 @@ public class Battleship {
 
     public void scanDimensions(){
 
-        for(int i=0; i<testCases; i++) {
             String input = scanner.nextLine();
 
             w = Integer.parseInt(input.substring(0, input.indexOf(' ')));
@@ -74,7 +74,6 @@ public class Battleship {
 
             h = Integer.parseInt(rest.substring(0, rest.indexOf(' ')));
             n = Integer.parseInt(rest.substring(rest.indexOf(' ') + 1));
-        }
     }
 
     public char[][] scanBattlefield(){
@@ -94,8 +93,8 @@ public class Battleship {
 
     public int[] scanCoordinates(){
         String input = scanner.nextLine();
-        int x = Integer.parseInt(input.substring(0, input.indexOf(' ')));
-        int y = (h - 1) - Integer.parseInt(input.substring(input.indexOf(' ') + 1));
+        int y = Integer.parseInt(input.substring(0, input.indexOf(' ')));
+        int x = (h - 1) - Integer.parseInt(input.substring(input.indexOf(' ') + 1));
         int[] result = {x, y};
         return result;
     }
